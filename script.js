@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!document.querySelector('.mobile-menu-btn')) {
                 const mobileBtn = document.createElement('button');
                 mobileBtn.className = 'mobile-menu-btn';
-                mobileBtn.innerHTML = '☰';
                 mobileBtn.style.cssText = `
                     background: none;
                     border: none;
