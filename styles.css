@@ -262,9 +262,10 @@ body {
         }
 
         .card-title {
-            font-size: 28px;
+            font-size: 200px;
             font-weight: 700;
-            color: #1f2937;
+            text-align: center;
+            color: #F3F2EC;
             margin-bottom: 20px;
             line-height: 1.2;
         }
@@ -373,8 +374,21 @@ body {
             }
         }
 
+        @media (max-width: 768px) {
+            .card-icon {
+            width: 100% !important;   /* paksa full */
+            box-sizing: border-box;   /* biar ikut padding */
+            display: block;           /* pastikan full baris */
+            margin: 0 auto 20px;      /* tengah + jarak bawah */
+        }
+
+        .card-title {
+            text-align: center; /* biar teks judulnya rapi tengah */
+            }
+        }
+
         .card-icon {
-            width: 60px;
+            width: 100%;
             height: 60px;
             background: linear-gradient(135deg, #10b981, #059669);
             border-radius: 15px;
