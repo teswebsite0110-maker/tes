@@ -29,6 +29,21 @@ body {
   margin: 0 auto; /* Tambahkan margin auto untuk centering horizontal */
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+  .parent-carousel {
+    min-height: auto;       /* jangan paksa full tinggi layar */
+    padding: 20px 0;        /* kasih jarak atas bawah */
+    align-items: flex-start; /* konten mulai dari atas, bukan tengah */
+  }
+
+  .carousel {
+    width: 100%;       /* full biar rapi */
+    max-width: 100%;   /* jangan kepotong */
+    border-radius: 8px;
+  }
+}
+
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
