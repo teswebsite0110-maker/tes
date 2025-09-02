@@ -1378,87 +1378,177 @@ body {
     }
 }
 
-/* Navigation Mobile Fix */
+/* Navigation Mobile Fix - LEBIH PRESISI */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+        flex-wrap: nowrap;
+    }
+    
+    .nav-brand {
+        flex-shrink: 0;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        justify-content: flex-end;
+        max-width: 65%;
+    }
+    
+    .nav-link {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-menu {
+        max-width: 70%;
+        gap: 0.2rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+    }
+}
+
 @media (max-width: 480px) {
     .nav-container {
         flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        align-items: center;
+    }
+    
+    .nav-brand {
+        text-align: center;
     }
     
     .nav-brand h2 {
         font-size: 1.4rem;
-        text-align: center;
     }
     
     .tagline {
         font-size: 0.7rem;
-        text-align: center;
     }
     
     .nav-menu {
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-        gap: 0.25rem;
+        max-width: 100%;
+        gap: 0.3rem;
     }
     
     .nav-link {
-        padding: 0.4rem 0.7rem;
+        padding: 0.5rem 0.9rem;
         font-size: 0.8rem;
         border-radius: 20px;
+        flex: 0 0 auto;
     }
     
     .main-content {
-        margin-top: 140px;
+        margin-top: 150px;
     }
 }
 
-/* Hero Section Mobile */
-@media (max-width: 480px) {
+/* PERBAIKAN LAYOUT CONTENT - SEPERTI BOOK SECTION */
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 1.5rem 1rem 0;
+    }
+    
     .hero-section {
         padding: 2rem 1rem;
     }
     
     .hero-section h1 {
         font-size: 1.8rem;
-        line-height: 1.3;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
     }
     
     .hero-subtitle {
         font-size: 0.9rem;
+        line-height: 1.4;
         padding: 0 0.5rem;
     }
-}
-
-/* Rob Section Mobile */
-@media (max-width: 480px) {
-    .rob-info h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
+    
+    /* Rob Section - Sama seperti Book */
+    .rob-section {
+        margin-bottom: 2.5rem;
     }
     
-    .rob-info p {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-        text-align: left;
+    .rob-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
     }
     
     .rob-image img {
-        max-width: 250px;
+        max-width: 220px;
+        border-radius: 12px;
+    }
+    
+    .rob-info h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .rob-info p {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+        text-align: left;
+        line-height: 1.5;
     }
     
     .cta-buttons {
         flex-direction: column;
         gap: 0.8rem;
         align-items: stretch;
+        margin-top: 1.5rem;
     }
     
     .btn-primary,
     .btn-secondary {
         width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
         text-align: center;
-        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        padding: 1rem 0.75rem 0;
+    }
+    
+    .hero-section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .rob-image img {
+        max-width: 200px;
+    }
+    
+    .rob-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .rob-info p {
+        font-size: 0.8rem;
     }
 }
 
@@ -1539,37 +1629,104 @@ body {
     }
 }
 
-/* Testimonials Mobile */
-@media (max-width: 480px) {
+/* TESTIMONY SECTION - LAYOUT RAPI SEPERTI BOOK */
+.testimonials-section {
+    background: transparent;
+    padding: 2rem 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 1.5rem;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    padding: 0 1rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
     .testimonials-section {
-        padding: 2rem 0;
+        padding: 1.5rem 0;
+        margin-top: 1rem;
     }
     
     .testimonials-section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1rem;
     }
     
     .testimonials-grid {
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
         padding: 0 1rem;
     }
     
     .testimonial-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
         border-radius: 10px;
+        border-left: 3px solid #27ae60;
     }
     
     .testimonial-card p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 1rem;
+        line-height: 1.4;
     }
     
     .testimonial-author strong {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
     }
     
     .testimonial-author span {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .testimonials-grid {
+        padding: 0 0.75rem;
+        gap: 1rem;
+    }
+    
+    .testimonial-card {
+        padding: 1rem;
+        border-left: 3px solid #27ae60;
+    }
+    
+    .testimonial-card p {
         font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .testimonial-author strong {
+        font-size: 0.8rem;
+    }
+    
+    .testimonial-author span {
+        font-size: 0.7rem;
     }
 }
