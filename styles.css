@@ -44,6 +44,19 @@ body {
   }
 }
 
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .parent-carousel {
+    min-height: 70vh;   /* lebih rendah dari desktop */
+    padding: 40px 0;
+  }
+
+  .carousel {
+    width: 95%;
+    max-width: 900px;
+  }
+}
+
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -51,7 +64,7 @@ body {
 
 .slide {
   display: flex;
-  background: #A3DC9A;
+  background: #A6B28B;
   color: #fff;
   min-width: 100%;
   padding: 30px;
@@ -81,13 +94,13 @@ body {
 
 .book-description h2 {
   margin-bottom: 10px;
-  color: #f8f9fa
+  color: #F3F2EC;
 }
 
 .book-description p {
   margin-bottom: 15px;
   line-height: 1.5;
-    color: #f8f9fa
+    color: #F3F2EC;
 }
 
 .btn {
@@ -885,8 +898,9 @@ body {
 
 .rob-image img {
     display: grid;
-    width: 100%;
+    width: 400px;
     max-width: 280px;
+    height: 650px;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
