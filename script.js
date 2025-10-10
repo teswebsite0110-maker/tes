@@ -191,7 +191,57 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
+      // FAQ accordion functionality
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', function () {
+      // Close all other items
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+  
+//   on anction
+ document.addEventListener('DOMContentLoaded', function() {
+            const snowboardPanels = document.querySelectorAll('.snowboard-panel');
+            
+            snowboardPanels.forEach(panel => {
+                panel.addEventListener('click', function() {
+                    // Remove clicked class from all panels
+                    snowboardPanels.forEach(p => p.classList.remove('clicked'));
+                    
+                    // Add clicked class to current panel
+                    this.classList.add('clicked');
+                    
+                    // Remove the effect after animation completes
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                    }, 600);
+                    
+                    // Log the type for potential future use
+                    const type = this.getAttribute('data-type');
+                    console.log(`Selected: ${type} snowboard`);
+                });
+                
+                // Optional: Add keyboard accessibility
+                panel.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+                
+                // Make panels focusable for accessibility
+                panel.setAttribute('tabindex', '0');
+            });
+        });
     // Add hover effects to cards
     const cards = document.querySelectorAll('.testimonial-card, .rob-card');
     cards.forEach(card => {
