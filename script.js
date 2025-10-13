@@ -39,6 +39,25 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update URL hash without triggering scroll
         history.pushState(null, null, `#${pageId}`);
     }
+    // book
+let slideIndex = 0;
+const slides = document.querySelectorAll(".carouselservice4 .slides");
+let autoSlide;
+
+function showSlides() {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex - 1].classList.add("active");
+  autoSlide = setTimeout(showSlides, 4000);
+}
+
+// stop auto slide if user clicks "Shop Now"
+function pauseCarousel() {
+  clearTimeout(autoSlide);
+}
+
+showSlides();
     
     // Add click event listeners to navigation links
     navLinks.forEach(link => {
@@ -259,27 +278,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// buku
-  let currentIndex = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-
-    function showSlide(index) {
-      if (index < 0) currentIndex = totalSlides - 1;
-      else if (index >= totalSlides) currentIndex = 0;
-      else currentIndex = index;
-
-      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextSlide() {
-      showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-      showSlide(currentIndex - 1);
-    }
-
     // service
 function handleLearnMore(serviceName) {
             // Simple click handler without heavy animations
@@ -335,3 +333,18 @@ function handleLearnMore(serviceName) {
     }, { threshold: 0.6 });
 
     counters.forEach(c => io.observe(c));
+    
+    // Carousel buku: klik buku langsung tampil, tanpa auto slide
+const bookSlides = document.querySelectorAll(".carouselservice4 .slide");
+
+bookSlides.forEach((slide, idx) => {
+  slide.addEventListener("click", () => {
+    bookSlides.forEach(s => s.classList.remove("active"));
+    slide.classList.add("active");
+  });
+});
+
+// Tampilkan slide pertama saat load
+if (bookSlides.length) {
+  bookSlides[0].classList.add("active");
+}
