@@ -51,8 +51,6 @@ html {
   overflow-x: hidden; 
 }
 
-
-
 /* carousel ukuran agak tengah */
 .parent-carousels {
   display: flex;
@@ -157,10 +155,10 @@ html {
 .slides {
   width: 100%;
   max-width: 1200px;
-  margin-right: calc(-50vw + 58%);
   display: none;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; 
+  gap: 150px;    
   background: linear-gradient(90deg, #f8bbd0, #f48fb1);
   padding: 70px 50px;
   border-radius: 25px;
@@ -171,6 +169,7 @@ html {
 .slides.active {
   display: flex;
   animation: fade 1s ease-in-out;
+  
 }
 
 .slides img {
@@ -187,9 +186,11 @@ html {
 .slides h2 {
   font-size: 2rem;
   color: #222;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .slides p {
+  font-family: Arial, Helvetica, sans-serif;
   color: #555;
   margin-bottom: 10px;
 }
@@ -236,10 +237,16 @@ html {
   margin-bottom: 20px;
 }
 
+.best-selling h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .book-grid {
   display: grid;
-grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 100px;
 }
 
 .book-card {
@@ -255,14 +262,8 @@ grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   transform: translateY(-5px);
 }
 
-.book-card img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
 .book-card h5 {
+
   font-size: 1rem;
   margin: 10px 0 5px;
   color: #333;
@@ -528,10 +529,11 @@ h2 {
 }
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 2rem;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 50 auto;
+            padding: 0 40px;
         }
         .snowboard-panel {
             position: relative;
@@ -676,7 +678,7 @@ h2 {
         width: 100% !important;
     }
 
-      .blok-utama {
+    .blok-utama {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -701,10 +703,11 @@ h2 {
     }
 
     .isi-kiri h2 {
-      font-size: 24px;
+      font-size: 50px;
       line-height: 1.4;
       margin-bottom: 20px;
       text-align: justify;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .isi-kiri a {
@@ -741,8 +744,6 @@ h2 {
 
     .isi-kanan img {
         max-width: 100%;
-        height: 100vh;
-        transform: scale(1.3);
     }
 
 @media (max-width: 768px) {
@@ -821,6 +822,22 @@ h2 {
     background-color: #E6D8C3;
 }
 
+.faq-answer h4 {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      text-align: justify;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+.faq-answer p {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      text-align: justify;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
 .faq-item.active .faq-answer {
     padding: 0 20px 20px;
     max-height: 3000px;
@@ -860,11 +877,54 @@ h2 {
             overflow: hidden;
         }
         
-        .card-image img {
+                /* Default (Desktop) */
+        .book-card img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 230px;
+            object-fit: contain;
+            border-radius: 10px;
         }
+
+        .book-grid {
+            align-items: start;
+        }
+
+        .book-card {
+            padding: 12px;
+        }
+
+        .book-card h5 {
+            font-size: 16px;
+            line-height: 1.4;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+    /* iPad / Tablet */
+        @media (max-width: 1024px) {
+        .book-card img {
+        height: 200px;
+        border-radius: 10px;
+            }
+        }
+        /* Mobile */
+        @media (max-width: 768px) {
+        .book-card img {
+            height: 300px;
+            border-radius: 8px;
+         }
+        }
+
+        /* Mobile kecil (opsional tapi aman) */
+        @media (max-width: 480px) {
+        .book-card img {
+            height: 100%;
+            border-radius: 6px;
+            gap: 150px;
+         }
+        }
+
+        
         
         .card-tag {
             position: absolute;
@@ -931,9 +991,7 @@ h2 {
 
 .carouselservice4 {
   width: 100vw;
-  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   position: relative;
 }
@@ -1532,7 +1590,6 @@ h2 {
 /* Main Content */
 .main-content {
     margin-top: 78px;
-    /* min-height: calc(100vh - 80px); */
 }
 .page {
     display: none;
@@ -1564,9 +1621,8 @@ h2 {
 }
 
 .content-wrapper {
-    max-width: 1200px;
+    max-width: 3000px;
     margin: 0 auto;
-    padding: 3rem 2rem 0;
 }
 .gold-accent {
     color: var(--primary-gold);
@@ -1617,16 +1673,17 @@ h2 {
 
 .rob-image {
     text-align: left;
-    width: 100%;
+    width: 100;
 }
 
 .rob-image img {
-    width: 100%;
-    /* max-width: 280px; */
+    width: 450px;
     height: 1000px;
 }
 
+
 .rob-info h2 {
+    padding: 0 40px;
     font-size: 2rem;
     color: #2c3e50;
     margin-bottom: 1.5rem;
@@ -1634,6 +1691,7 @@ h2 {
 }
 
 .rob-info p {
+    padding: 0 80px;
     margin-bottom: 1.2rem;
     color: #555;
     line-height: 1.6;
@@ -1643,6 +1701,7 @@ h2 {
 }
 
 .cta-buttons {
+    padding: 0 80px;
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
@@ -2269,112 +2328,6 @@ h2 {
     }
 }
 
-/* SEMUA SECTION LAYOUT KONSISTEN KAYAK BOOK - MOBILE RESPONSIVE */
-
-/* About Section - Layout kayak Book */
-@media (max-width: 768px) {
-    .content-wrapper {
-        padding: 1rem 0;
-    }
-    
-    .hero-section {
-        padding: 1.5rem 1rem;
-        margin-bottom: 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 1.6rem;
-        line-height: 1.2;
-        margin-bottom: 0.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        max-width: 100%;
-    }
-    
-    /* Rob Section */
-    .rob-section {
-        margin-bottom: 2rem;
-    }
-    
-    .rob-card {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-        padding: 0 1rem;
-    }
-    
-    .rob-image img {
-        max-width: 200px;
-        border-radius: 12px;
-    }
-    
-    .rob-info h2 {
-        font-size: 1.5rem;
-    }
-    
-    .rob-info p {
-        font-size: 0.8rem;
-        margin-bottom: 0.8rem;
-        text-align: left;
-        line-height: 1.4;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: stretch;
-        margin-top: 1.2rem;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        padding: 0.7rem 1rem;
-        font-size: 0.85rem;
-        text-align: center;
-    }
-    
-    .testimonials-section {
-        padding: 1.5rem 0;
-        margin-top: 1rem;
-    }
-    
-    .testimonials-section h2 {
-        font-size: 1.4rem;
-        margin-bottom: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0 1rem;
-    }
-    
-    .testimonial-card {
-        padding: 1rem;
-        border-radius: 10px;
-        border-left: 3px solid #27ae60;
-    }
-    
-    .testimonial-card p {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-        line-height: 1.4;
-    }
-    
-    .testimonial-author strong {
-        font-size: 0.85rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .testimonial-author span {
-        font-size: 0.75rem;
-    }
-}
 
 /* Media, Services, Gallery, Client Content - Layout konsisten */
 @media (max-width: 768px) {
@@ -2889,27 +2842,25 @@ h2 {
   .rob-card {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    align-items: center;
+    gap: 3rem;
+    grid-template-columns: 450px 1fr;
+    align-items:stretch;
     padding: 0 0.5rem;
     text-align: center;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    background: transparent !important;
     margin-bottom: 2rem;
   }
   .rob-image {
-    width: 100%;
-    max-width: 180px;
+  width: 100%;        /* gedein ke kiri */
     margin: 0 auto 1rem auto;
     text-align: center;
+     height: 100%;          /* NGASIH TINGGI */
+  overflow: hidden;
   }
   .rob-image img {
     width: 100%;
-    max-width: 180px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
+    height: 100%;
+      object-fit: cover;   /* penting */
+  object-position: left center; /* dorong konten ke kiri */
   }
   .rob-info {
     width: 100%;
@@ -3018,10 +2969,7 @@ h2 {
     width: 100%;
     max-width: 260px;
     height: auto;
-    object-fit: cover;
-    border-radius: 16px;
     margin: 0 auto;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     transform: none;
   }
 }
@@ -3119,10 +3067,7 @@ h2 {
     width: 100%;
     max-width: 260px;
     height: auto;
-    object-fit: cover;
-    border-radius: 16px;
     margin: 0 auto;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     transform: none;
   }
   /* FAQ Section di Services */
@@ -3168,3 +3113,151 @@ h2 {
     padding: 0.5rem 0.1rem;
   }
 }
+/* ============================
+   SERVICES – MOBILE & iPAD FIX
+   ============================ */
+@media (max-width: 1024px) {
+
+  /* bikin section bener-bener full layar */
+  .carouselservice2 {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0;
+  }
+
+  /* matiin container biar ga nyempit */
+  .carouselservice2 .container {
+    max-width: none !important;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* susunan: FOTO ATAS, TEKS BAWAH */
+  .blok-utama {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
+
+  /* BAGIAN FOTO (KUNING) */
+  .isi-kanan {
+    width: 100%;
+    background-color: #ffb400;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .isi-kanan img {
+    width: auto; 
+    max-height: 800px; 
+    max-width: 400px;   /* gede tapi aman */
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* BAGIAN TEKS (BIRU) */
+  .isi-kiri {
+    width: 100%;
+    background-color: #3d5a80;
+    color: #fff;
+    padding: 32px 16px;
+    text-align: center;
+  }
+
+  .isi-kiri h2 {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+}
+/* === SERVICES FINAL OFFSET FIX === */
+@media (max-width: 1024px) {
+  .carouselservice2 {
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rob-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rob-info {
+    padding: 0;
+  }
+}
+
+/* HANDPHONE */
+@media (max-width: 768px) {
+  .rob-image {
+    max-width: 160px;
+    margin: 0 auto 16px;
+  }
+
+  .rob-info p {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+/* OFFSET NAVBAR RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 160px;
+  }
+}
+
+#book {
+  background: #fff;
+  width: 100%;
+  overflow: hidden;
+}
+.carouselservice4 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+}
+.slides {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+    #book {
+    background: #fff;
+
+    overflow: hidden; 
+    width: 350px;
+    }
+  .slides {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .slides img {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
