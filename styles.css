@@ -96,13 +96,50 @@ html {
 
 .carouselservice {
   width: 100vw;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   background: transparent; /* biar background parent yang dipakai */
   margin-left: 0;
+}
+@media (max-width: 1024px) {
+  .carouselservice {
+    overflow: hidden;     /* TETAP */
+    height: auto;         /* KUNCI PROBLEM */
+    min-height: auto;
+  }
+/* DESKTOP – tetap statis */
+.carouselservice {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* MOBILE & iPAD – biar teks turun */
+@media (max-width: 1024px) {
+  .carouselservice {
+    min-height: auto;   /* PENTING */
+    height: auto;
+    overflow: hidden;   /* tetap */
+  }
+
+  .testimonials-section {
+    height: auto;
+    min-height: auto;
+    padding-bottom: 60px; /* kasih nafas bawah */
+  }
+}
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding-bottom: 24px;
+  }
+}
+
+  .testimonials-section {
+    overflow: hidden;     /* TETAP */
+    height: auto;
+    min-height: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -241,6 +278,33 @@ html {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+.hot-release-title {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* INI KUNCINYA */
+  gap: 12px;
+
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #2f2f2f;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* gambar ngikut tinggi teks */
+.hot-release-title img {
+  height: 1em;
+  width: auto;
+  object-fit: contain;
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .hot-release-title {
+    font-size: 1.6rem;
+  }
 }
 
 .book-grid {
@@ -513,10 +577,9 @@ html {
   padding: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .carouselservice3 {
         width: 100vw;
-        margin-left: 0; /* Reset margin-left di mobile */
         padding: 20px;
     }
 }
@@ -609,7 +672,7 @@ h2 {
             }
         }
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .gallery-container {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -746,7 +809,7 @@ h2 {
         max-width: 100%;
     }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .blok-utama {
     flex-direction: column;
   }
@@ -843,6 +906,52 @@ h2 {
     max-height: 3000px;
 }
 
+/* =========================
+   MOBILE + iPAD (<=1024px)
+   ========================= */
+@media (max-width: 1024px) {
+  .faq-content {
+    max-width: 100%;
+    padding: 0 16px;
+    position: relative;
+    top: -80px;
+  }
+
+  .faq-item {
+    margin-bottom: 12px;
+  }
+
+  .faq-question {
+    height: auto;              /* biar teks ga kepotong */
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-question i {
+    margin-top: 4px;
+  }
+
+  .faq-answer {
+    padding: 0 16px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 16px 16px;
+  }
+
+  .faq-answer h4,
+  .faq-answer p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
 
     /* gallery */
     .container {
@@ -996,7 +1105,7 @@ h2 {
   position: relative;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .carouselservice4 {
         width: 100vw;
         margin-left: 0; /* Reset margin-left di mobile */
@@ -1132,7 +1241,7 @@ h2 {
         }
     
         /* Media */
-         .gallery-containers {
+         .containers {
   column-count: 2; /* jumlah kolom, jadi 2 foto per baris */
   column-gap: 1rem; /* jarak antar kolom */
   max-width: 1200px;
@@ -1220,7 +1329,7 @@ h2 {
         }
     }
     /* Responsive Design */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .gallery-containers {
             grid-template-columns: 1fr;
             gap: 1.5rem;
@@ -1518,13 +1627,20 @@ h2 {
     padding: 0 3rem;
 }
 
-.nav-brand h2 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 0.1rem;
-    letter-spacing: -0.5px;
+.nav-brand h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2f2f2f; /* hitam lembut */
+    line-height: 1.2;
 }
+
+@media (max-width: 1024px) {
+  .nav-brand h1 {
+    font-size: 1.5rem; /* cuma ini yang berubah */
+  }
+}
+
 
 .tagline {
     font-size: 0.75rem;
@@ -1590,11 +1706,11 @@ h2 {
 /* Main Content */
 .main-content {
     margin-top: 78px;
+    overflow: hidden;
 }
 .page {
     display: none;
 }
-
 .page.active {
     display: block;
 }
@@ -1681,13 +1797,22 @@ h2 {
     height: 1000px;
 }
 
-
 .rob-info h2 {
-    padding: 0 40px;
+    font-family: 'Archivo Black', sans-serif;
     font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+    font-weight: 400;
+    color: #2f2f2f; /* hitam lembut */
+    line-height: 1.2;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+  .rob-info h2 {
+    font-size: 1.6rem;
+    color: #2f2f2f;
+    font-family: 'Archivo Black', sans-serif;
+    margin-bottom: 40px;
+  }
 }
 
 .rob-info p {
@@ -1697,7 +1822,8 @@ h2 {
     line-height: 1.6;
     font-size: 1.2rem;
     text-align: justify;
-    margin-left: 20px; /* Menggeser teks ke kanan */
+    margin-left: 20px;
+     font-family: Arial, Helvetica, sans-serif;
 }
 
 .cta-buttons {
@@ -1751,7 +1877,8 @@ h2 {
     box-shadow: none;
     margin: 2rem auto; /* ini bikin ke tengah */
     width: 700px;
-    text-align: center;
+    text-align: justify;
+     overflow: hidden;
 }
 
 .testimonials-section h2 {
@@ -1764,10 +1891,11 @@ h2 {
 
 .testimonials-section p {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1rem;
     color: #2c3e50;
     margin-bottom: 3rem;
     font-weight: 600;
+    text-align: justify;
 }
 
 .testimonials-author strong {
@@ -1782,6 +1910,52 @@ h2 {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Selalu 3 kolom di desktop */
     gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .carouselservice {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+     display: flex;
+    justify-content: center;
+  }
+  .testimonials-section {
+    width: 100% !important;
+    max-width: 1000px !important;
+    margin-left: 10px !important;
+    margin-right: 30px !important;
+    padding: 24px 16px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* FIX TESTIMONIAL MOBILE & IPAD */
+@media (max-width: 1024px) {
+  .carouselservice {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+  }
+
+  .testimonials-section {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+    padding-bottom: 48px;
+  }
+
+  .testimonial-card {
+    height: auto;
+    min-height: auto;
+    width: auto;
+  }
 }
 
 /* Tablet */
@@ -1819,6 +1993,12 @@ h2 {
     line-height: 1.5;
     font-size: 0.95rem;
     text-align: justify;
+}
+@media (max-width: 768px) {
+  .testimonial-card p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 }
 
 .testimonial-author strong {
@@ -2070,7 +2250,7 @@ h2 {
 /* Carousel Mobile Responsive */
 @media (max-width: 768px) {
     .parent-carousel {
-        padding: 1rem;
+        padding: 0px;
         min-height: auto;
     }
     
@@ -2710,8 +2890,12 @@ h2 {
     padding: 2rem 0;
     border-radius: 0;
     box-shadow: none;
-    margin-top: 1.5rem;
+    margin-top: 1.5rem;;
 }
+.testimonials-section > .testimonial-card {
+  margin-bottom: 40px;
+}
+
 
 .testimonials-section h2 {
     text-align: center;
@@ -2898,7 +3082,7 @@ h2 {
 }
 
 /* Untuk layar sangat kecil */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .main-content {
     margin-top: 90px;
     padding: 0 0.5rem;
@@ -2908,9 +3092,15 @@ h2 {
   }
   .rob-info h2 {
     font-size: 1rem;
+    text-align: justify;
+     padding: 0px;
+    margin-left: 0;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .rob-info p {
-    font-size: 0.85rem;
+     padding: 0px;
+    margin-left: 0;
+    text-align: left;
   }
   .btn-primary,
   .btn-secondary {
@@ -3120,24 +3310,19 @@ h2 {
 
   /* bikin section bener-bener full layar */
   .carouselservice2 {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    width: auto;
     padding: 0;
+    position: relative;
+    top: -120px;
   }
 
-  /* matiin container biar ga nyempit */
-  .carouselservice2 .container {
-    max-width: none !important;
-    width: 100%;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
 
   /* susunan: FOTO ATAS, TEKS BAWAH */
   .blok-utama {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 100vw;
+    margin-top: 0px;
   }
 
   /* BAGIAN FOTO (KUNING) */
@@ -3189,6 +3374,13 @@ h2 {
   .rob-info {
     padding: 0;
   }
+
+    .rob-info p {
+     padding: 0px;
+    margin-left: 0;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 }
 
 /* HANDPHONE */
@@ -3199,8 +3391,10 @@ h2 {
   }
 
   .rob-info p {
+     padding: 0px;
     margin-left: 0;
-    text-align: left;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
@@ -3208,13 +3402,7 @@ h2 {
 
 @media (max-width: 1024px) {
   .main-content {
-    margin-top: 100px;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    margin-top: 160px;
+    margin-top: 120px;
   }
 }
 
@@ -3224,6 +3412,7 @@ h2 {
   overflow: hidden;
 }
 .carouselservice4 {
+ text-align: justify;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -3240,9 +3429,8 @@ h2 {
 @media (max-width: 1024px) {
     #book {
     background: #fff;
-
     overflow: hidden; 
-    width: 350px;
+    width: 100%;
     }
   .slides {
     flex-direction: column;
@@ -3253,6 +3441,21 @@ h2 {
   .slides img {
     width: 200px;
     margin-bottom: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .slides {
+    gap: 24px !important;        /* KUNCI */
+    min-height: auto !important; /* KUNCI */
+    padding: 32px 20px !important;
+  }
+
+  .slides .text {
+    max-width: 100%;
+  }
+
+  .slides .text p {
+    margin-bottom: 16px !important;
   }
 }
 
